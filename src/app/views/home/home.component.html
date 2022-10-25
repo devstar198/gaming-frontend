@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div class="container">
+  <app-card
+    class="card"
+    *ngFor="let game of filteredGames(gameType)"
+    [game]="game"
+    [jackpot]="getGameJackpot(game.id)"
+  ></app-card>
+</div>
