@@ -1,31 +1,24 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpResponse,
-  HttpClient,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { catchError, retry } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
-import { IGame, IGameJackpots } from '../game';
+import { IGame, IJackpot } from '../game';
 
 @Injectable()
 export class GameService {
-  private url: string = 'http://stage.whgstage.com/front-end-test';
-
   constructor(private http: HttpClient) {}
 
   getGames() {
     return this.http
-      .get<IGame[]>(`${this.url}/games.php`)
+      .get<IGame[]>("http://stage.whgstage.com/front-end-test/games.php")
       .pipe(catchError(this.handleError));
   }
 
   getJackpots() {
     return this.http
-      .get<IGameJackpots[]>(`${this.url}/jackpots.php`)
+      .get<IJackpot[]>("http://stage.whgstage.com/front-end-test/jackpots.php")
       .pipe(catchError(this.handleError));
   }
 

@@ -1,26 +1,25 @@
 import { createReducer, on, createSelector } from '@ngrx/store';
 import {
   errorGame,
-  getGameByCategory,
   loadGames,
   loadJackpots,
   setActiveCategory,
 } from './game.actions';
-import { IGame, IGameJackpots, IGameType } from '../game';
+import { IGame, IJackpot, CategoryType } from '../game';
 
 export interface GameState {
   games: IGame[];
-  jackpots: IGameJackpots[];
-  error: string;
+  jackpots: IJackpot[];
   filteredGames?: IGame[];
-  activeCategory?: IGameType;
+  activeCategory?: CategoryType;
+  error: string;
 }
 
 export const initialState: GameState = {
   games: [],
   jackpots: [],
-  error: '',
   filteredGames: [],
+  error: '',
 };
 
 export const GameReducer = createReducer(

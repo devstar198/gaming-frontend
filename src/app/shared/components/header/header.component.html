@@ -1,0 +1,9 @@
+<div class="header">
+  <div
+    *ngFor="let category of categories"
+    [ngClass]="{ category: true, active: category.type === activeCategory }"
+    (click)="goToSelectedCategory(category)"
+  >
+    {{ category.name }}
+  </div>
+</div>

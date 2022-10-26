@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #373737;
+
+  .category {
+    padding: 15px 30px;
+    color: #FCFCFC;
+    cursor: pointer;
+
+    &.active, &:hover {
+      background: #8dc63f;
+    }
+  }
+}

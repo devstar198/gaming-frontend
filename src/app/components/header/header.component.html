@@ -1,9 +1,0 @@
-<div class="header">
-  <div
-    *ngFor="let menu of menus"
-    [ngClass]="{ menu: true, active: menu.type === activeCategory }"
-    (click)="goToGame(menu)"
-  >
-    {{ menu.menu }}
-  </div>
-</div>

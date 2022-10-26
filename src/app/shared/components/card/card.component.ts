@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IGame, IGameType } from 'src/app/shared/game';
+import { IGame, CategoryType } from 'src/app/shared/game';
 
 import { Store, select } from '@ngrx/store';
 import {
@@ -14,8 +14,8 @@ import {
 })
 export class CardComponent implements OnInit {
   @Input() game?: IGame;
-  @Input() jackpot?: string;
-  activeCategory?: IGameType;
+  @Input() jackpot?: number;
+  activeCategory?: CategoryType;
 
   constructor(private store: Store) {
     this.store
@@ -25,25 +25,15 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  isNewRibbon(game: IGame) {
-    if (
-      this.activeCategory === IGameType.new ||
-      this.activeCategory === IGameType.top
-    )
-      return;
+  isTop(game: IGame) {
     const categories = game.categories;
-    if (categories.find((category) => category === IGameType.new)) return true;
+    if (categories.find((category) => category === CategoryType.top)) return true;
     else return false;
   }
 
-  isTopRibbon(game: IGame) {
-    if (
-      this.activeCategory === IGameType.new ||
-      this.activeCategory === IGameType.top
-    )
-      return;
+  isNew(game: IGame) {
     const categories = game.categories;
-    if (categories.find((category) => category === IGameType.top)) return true;
+    if (categories.find((category) => category === CategoryType.new)) return true;
     else return false;
   }
 }

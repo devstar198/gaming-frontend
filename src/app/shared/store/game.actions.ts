@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { IGame, IGameJackpots, IGameType } from '../game';
+import { IGame, IJackpot, CategoryType } from '../game';
 
-export enum GameActionTypes {
+export enum ActionType {
   GetAll = 'Get all games',
   LoadGames = 'Load all games',
   GetGameByCategory = 'Get games by category',
@@ -11,31 +11,31 @@ export enum GameActionTypes {
   Error = 'Error',
 }
 
-export const getGames = createAction(GameActionTypes.GetAll);
+export const getGames = createAction(ActionType.GetAll);
 
 export const getGameByCategory = createAction(
-  GameActionTypes.GetGameByCategory,
-  props<{ gameType: IGameType }>()
+  ActionType.GetGameByCategory,
+  props<{ gameType: CategoryType }>()
 );
 
 export const loadGames = createAction(
-  GameActionTypes.LoadGames,
-  props<{ games: IGame[]; gameType?: IGameType }>()
+  ActionType.LoadGames,
+  props<{ games: IGame[]; gameType?: CategoryType }>()
 );
 
-export const getJackpots = createAction(GameActionTypes.GetJackpots);
+export const getJackpots = createAction(ActionType.GetJackpots);
 
 export const loadJackpots = createAction(
-  GameActionTypes.LoadJackpots,
-  props<{ jackpots: IGameJackpots[] }>()
+  ActionType.LoadJackpots,
+  props<{ jackpots: IJackpot[] }>()
 );
 
 export const setActiveCategory = createAction(
-  GameActionTypes.SetActiveCategory,
-  props<{ category: IGameType }>()
+  ActionType.SetActiveCategory,
+  props<{ category: CategoryType }>()
 );
 
 export const errorGame = createAction(
-  GameActionTypes.Error,
+  ActionType.Error,
   props<{ message: string }>()
 );

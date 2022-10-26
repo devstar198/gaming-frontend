@@ -2,7 +2,7 @@
 <div class="container">
   <app-card
     class="card"
-    *ngFor="let game of filteredGames(gameType)"
+    *ngFor="let game of getGamesByCategory(categoryType)"
     [game]="game"
     [jackpot]="getGameJackpot(game.id)"
   ></app-card>

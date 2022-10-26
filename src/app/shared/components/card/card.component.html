@@ -1,18 +1,14 @@
 <div *ngIf="game" class="card">
   <div class="card-content">
-    <div class="ribbon ribbon-top-right" *ngIf="isNewRibbon(game)">
-      <span>New</span>
-    </div>
-    <div class="ribbon ribbon-top-left" *ngIf="isTopRibbon(game)">
-      <span>Top</span>
-    </div>
+    <div class="cr cr-top cr-left cr-red" *ngIf="isTop(game)">TOP</div>
+    <div class="cr cr-top cr-right cr-green" *ngIf="isNew(game)">NEW</div>
     <div class="card-container">
       <div class="game-jackpot" *ngIf="jackpot">£ {{ jackpot }}</div>
       <div class="layout">
         <div class="name">{{ game.name }}</div>
-        <button>Play</button>
+        <button class="play-btn">Play</button>
       </div>
-      <img [src]="game.image" />
+      <img class="game-avatar" [src]="game.image" />
     </div>
   </div>
 </div>

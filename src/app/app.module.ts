@@ -7,17 +7,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './views/home/home.component';
-import { GameService } from './shared/service/game.service';
-import { HeaderComponent } from './components/header/header.component';
-import { CardComponent } from './components/card/card.component';
+import { GamesComponent } from './pages/games/games.component';
+import { GameService } from './shared/services/game.service';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { CardComponent } from './shared/components/card/card.component';
 
 import { environment } from '../environments/environment';
 import { GameEffect } from './shared/store/game.effects';
 import { GameReducer } from './shared/store/game.reducers';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, CardComponent],
+  declarations: [AppComponent, GamesComponent, HeaderComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
